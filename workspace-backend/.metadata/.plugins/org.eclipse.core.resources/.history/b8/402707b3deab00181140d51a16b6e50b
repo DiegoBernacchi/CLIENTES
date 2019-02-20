@@ -1,0 +1,17 @@
+package dm.cliente.vo;
+
+import java.io.Serializable;
+
+public class ValoresVO implements Serializable {
+	
+	private static final long serialVersionUID = -2705891481574204120L;
+	
+	private Double historico;
+	private Double utilizados;
+	private Double perdidos;
+	
+	public ValoresVO() {
+	}
+	
+	
+}

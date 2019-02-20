@@ -1,0 +1,18 @@
+<div class="input-group">
+  <input [(ngModel)]="filtro" id="input-search" type="text" class="form-control font-weight-bold font-italic" placeholder="Buscar cliente por nome">
+  <div class="input-group-append ">
+    <span class="input-group-text">
+      <i class="fa fa-search p-2 text-dark" aria-hidden="true"></i>
+    </span>
+  </div>
+</div>
+
+<ul id="lista-cliente" class="list-group">
+  <li class="list-group-item" *ngFor="let cliente of listaClientes | filter : 'nome' : filtro" (click)="selecionarCliente(cliente)">
+    <span>{{ cliente.email }}</span>
+    <br>
+    <span class="font-weight-bold font-italic">{{ cliente.nome }}</span>
+    <br>
+    <span>+ {{ cliente.telefone.pais }} ({{ cliente.telefone.area }}) {{ cliente.telefone.numero }}</span>
+  </li>
+</ul>

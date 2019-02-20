@@ -1,0 +1,40 @@
+package dm.cliente.rs;
+
+import java.util.Map;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import com.sun.jersey.api.core.ResourceConfig;
+
+
+@Path("cliente")
+public class ClienteService extends ResourceConfig {
+	
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+    public String get() {
+        return "TESTE";
+    }
+
+	@Override
+	public boolean getFeature(String arg0) {
+		return false;
+	}
+
+	@Override
+	public Map<String, Boolean> getFeatures() {
+		return null;
+	}
+
+	@Override
+	public Map<String, Object> getProperties() {
+		return null;
+	}
+
+	@Override
+	public Object getProperty(String arg0) {
+		return null;
+	}
+	
+}

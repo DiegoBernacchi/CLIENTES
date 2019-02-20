@@ -1,0 +1,16 @@
+package dm.cliente.vo;
+
+import java.io.Serializable;
+
+public class NotaFiscalVO implements Serializable {
+
+	private static final long serialVersionUID = -4293502620881641616L;
+	
+    public id?: number,
+    public loja?: string,
+    public numeroNota?: number,
+    public dataNota?: Date,
+    public dataCadastro?: Date,
+    public formaPagamento?: string,
+    public valor?: number
+}

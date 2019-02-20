@@ -1,0 +1,236 @@
+<form (ngSubmit)="adicionarNotaFiscal()" [formGroup]="formularioNotaFiscal">
+
+  <div class="col-md-12">
+
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <h5 class="font-weight-bold">Fidelidade</h5>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class='row'>
+
+      <div class="col-md-12">
+
+        <ul class="nav nav-tabs flex-column flex-sm-row" role="tablist">
+
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#transacoes" role="transacoes" aria-controls="analise">
+              <strong>TRANSAÇÕES</strong>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#beneficios" role="tab" aria-controls="pesquisa">
+              <strong>BENEFÍCIOS</strong>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#historico" role="tab" aria-controls="monitoramento">
+              <strong>HISTÓRICO</strong>
+            </a>
+          </li>
+
+        </ul>
+
+        <div class="tab-content">
+
+          <div class="tab-pane active" id="transacoes" role="tabpanel">
+
+            <div class="col-md-12 mt-2">
+
+              <div class="row">
+
+                <div class="form-group col-md-3">
+                  <label class="form-control-label">
+                    <strong>Saldo</strong>
+                  </label>
+                  <p class="form-control-static">{{ valores.valorSaldo }}</p>
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label class="form-control-label">
+                    <strong>Histórico</strong>
+                  </label>
+                  <p class="form-control-static">{{ valores.valorHistorico }}</p>
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label class="form-control-label">
+                    <strong>Utilizados</strong>
+                  </label>
+                  <p class="form-control-static">{{ valores.valorUtilizado }}</p>
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label class="form-control-label">
+                    <strong>Perdidos</strong>
+                  </label>
+                  <p class="form-control-static">{{ valores.valorPerdido }}</p>
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <h5 class="font-weight-bold font-italic">Adicionar nota</h5>
+                </div>
+              </div>
+
+              <div class="row mt-2">
+                <div class="form-group col-md-12">
+                  <label class="form-control-label">
+                    <strong>LOJA</strong>
+                  </label>
+                  <input formControlName="loja" id="input-nota" type="text" class="form-control" placeholder="Razão social, nome fantasia ou CNPJ"
+                    [(ngModel)]="notaFiscal.loja">
+                  <p *ngIf="formularioNotaFiscal.controls.loja.errors?.required" class="text-danger mt-2">Loja obrigatória</p>
+                </div>
+              </div>
+
+              <div class="row mt-2">
+
+                <div class="form-group col-md-3">
+                  <label class="form-control-label">
+                    <strong>Nº DA NOTA</strong>
+                  </label>
+                  <input formControlName="numeroNota" id="input-nota" type="text" class="form-control" placeholder="Número da nota" [(ngModel)]="notaFiscal.numeroNota">
+                  <p *ngIf="formularioNotaFiscal.controls.numeroNota.errors?.required" class="text-danger mt-2">Numero da nota obrigatório</p>
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label class="form-control-label">
+                    <strong>DATA DA NOTA</strong>
+                  </label>
+                  <input formControlName="dataNota" id="input-nota" type="text" class="form-control" placeholder="dd/mm/yyyy" [(ngModel)]="notaFiscal.dataNota">
+                  <p *ngIf="formularioNotaFiscal.controls.dataNota.errors?.required" class="text-danger mt-2">Data da nota obrigatório</p>
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label class="form-control-label">
+                    <strong>FORMA DE PAGAMENTO</strong>
+                  </label>
+                  <select formControlName="formaPagamento" class="form-control" placeholder="Selecione a forma de pagamento" title="Selecione a forma de pagamento"
+                    [(ngModel)]="notaFiscal.formaPagamento">
+                    <option *ngFor="let formaPagamento of listaFormaPagamento" [ngValue]="formaPagamento">{{ formaPagamento.valor }}</option>
+                  </select>
+                  <p *ngIf="formularioNotaFiscal.controls.formaPagamento.errors?.required" class="text-danger mt-2">Forma de pagamento obrigatório</p>
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label class="form-control-label">
+                    <strong>VALOR</strong>
+                  </label>
+                  <input formControlName="valor" id="input-nota" type="text" class="form-control" [(ngModel)]="notaFiscal.valor">
+                  <p *ngIf="formularioNotaFiscal.controls.valor.errors?.required" class="text-danger mt-2">Valor obrigatório</p>
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="input-group justify-content-end">
+                    <button type="button" [disabled]="!exibeDados" class="btn btn-sm btn-outline-secondary mr-2" (click)="cancelarNotaFiscal()">
+                      <i class="fa fa-ban"></i> Cancelar</button>
+                    <button type="submit" [disabled]="!exibeDados" class="btn btn-sm btn-info">
+                      <i class="fa fa-plus"></i> Adicionar</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mt-4">
+                <div class="col-md-12">
+                  <h5 class="font-weight-bold font-italic">Cadastrar notas</h5>
+                  <p class="text-secondary">Você precisa confirmar o cadastro dessa lista de notas</p>
+                </div>
+              </div>
+
+              <form (ngSubmit)="cadastrarNotas()">
+
+                <div class="row">
+
+                  <div class="col-md-12">
+
+                    <div class="table-responsive">
+
+                      <table class="table table-sm">
+
+                        <thead class="thead-light">
+
+                          <tr>
+                            <th class="align-middle">LOJA</th>
+                            <th class="align-middle">Nº DA NOTA</th>
+                            <th class="align-middle">DATA DA NOTA</th>
+                            <th class="align-middle">DATA DO CADASTRO</th>
+                            <th class="align-middle">VALOR</th>
+                          </tr>
+
+                        </thead>
+
+                        <tbody>
+                          <tr *ngFor="let notaFiscal of listaNotaFiscal">
+                            <td class="align-middle">{{ notaFiscal.loja }}</td>
+                            <td class="align-middle">{{ notaFiscal.numeroNota }}</td>
+                            <td class="align-middle">{{ notaFiscal.dataNota }}</td>
+                            <td class="align-middle">{{ notaFiscal.dataCadastro }}</td>
+                            <td class="align-middle">{{ notaFiscal.valor }}</td>
+                          </tr>
+                        </tbody>
+
+                      </table>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="input-group justify-content-end">
+                      <button [disabled]="!exibeDados" type="button" class="btn btn-outline-secondary mr-2" (click)="cancelarNotas()">
+                        <i class="fa fa-ban"></i> Cancelar</button>
+                      <button [disabled]="!exibeDados" type="submit" class="btn btn-info">
+                        <i class="fa fa-save"></i> Cadastrar</button>
+                    </div>
+                  </div>
+                </div>
+
+              </form>
+
+            </div>
+
+          </div>
+
+          <div class="tab-pane" id="beneficios" role="tabpanel">
+            <div class="col-md-12 mt-4">
+              <div class="row">
+                <div class="col-md-12">
+                  <h5 class="font-weight-bold font-italic">BENEFÍCIOS</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" id="historico" role="tabpanel">
+            <div class="col-md-12 mt-4">
+              <div class="row">
+                <div class="col-md-12">
+                  <h5 class="font-weight-bold font-italic">HISTÓRICO</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</form>

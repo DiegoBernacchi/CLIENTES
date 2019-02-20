@@ -1,0 +1,38 @@
+<div class="row p-2">
+    <div class="col-md-12">
+        <button id="botao-voltar" class="btn" (click)="voltarListaClientes()">
+            <i class="fa fa-arrow-left fa-lg" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="row mt-2 mb-4">
+    <div class="col-md-12 text-center">
+        <img src="http://loremflickr.com/g/150/150/face" class="img-thumbnail" />
+        <p class="form-control-static font-weight-bold font-italic m-0">{{ cliente.nome }}</p>
+        <p class="form-control-static">CPF: {{ cliente.cpf }}</p>
+    </div>
+</div>
+
+<ul id="lista-cliente" class="list-group">
+    <li class="list-group-item">
+        <span class="font-weight-bold">OBSERVAÇÕES IMPORTANTES</span>
+        <br>
+        <span>{{ cliente.observacao }}</span>
+    </li>
+    <li class="list-group-item">
+        <span class="font-weight-bold">E-MAIL</span>
+        <br>
+        <span>{{ cliente.email }}</span>
+    </li>
+    <li class="list-group-item">
+        <span class="font-weight-bold">TELEFONE</span>
+        <br>
+        <span>{{ retornaTelefone() }}</span>
+    </li>
+    <li class="list-group-item">
+        <span class="font-weight-bold">ENDEREÇO</span>
+        <br>
+        <span>{{ retornaEndereco() }}</span>
+    </li>
+</ul>

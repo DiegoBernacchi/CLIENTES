@@ -1,0 +1,50 @@
+package dm.cliente.business;
+
+import java.util.ArrayList;
+import java.util.List;
+import dm.cliente.vo.ClienteVO;
+import dm.cliente.vo.EnderecoVO;
+import dm.cliente.vo.TelefoneVO;
+
+public class ClienteBusiness {
+
+	public ClienteBusiness() {
+	}
+
+	public List<ClienteVO> retornaListaCliente() {
+		List<ClienteVO> listaClientes = new ArrayList<>();
+		
+		ClienteVO cliente1 = new ClienteVO();
+		cliente1.setId(1L);
+		cliente1.setNome("Paulo");
+		cliente1.setEmail("paulo.fm@gmail.com");
+		cliente1.setCpf(123456);
+		cliente1.setObservacao("No último atendimento, o Sr. Paulo estava bastante irritado com a demora no cadastro das notas fiscais.");
+		cliente1.setFoto("http://loremflickr.com/g/150/150/face");
+		
+		TelefoneVO telefone = new TelefoneVO();
+		telefone.setId(1L);
+		telefone.setPais(55);
+		telefone.setArea(21);
+		telefone.setNumero(123456);
+		
+		EnderecoVO endereco = new EnderecoVO();
+		endereco.setId(1L);
+		endereco.setTipo("RUA");
+		endereco.setLogradouro("Visconde de Souza");
+		endereco.setNumero(23);
+		endereco.setComplemento("Bloco 2, Ap 201");
+		endereco.setBairro("Barra da Tijuca");
+		endereco.setCidade("Rio de janeiro");
+		endereco.setEstado("RJ");
+		endereco.setPais("Brasil");
+		
+		cliente1.setTelefone(telefone);
+		cliente1.setEndereco(endereco);
+		
+		listaClientes.add(cliente1);
+
+		return listaClientes;
+	}
+	
+}

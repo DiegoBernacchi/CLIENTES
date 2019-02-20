@@ -1,0 +1,14 @@
+package dm.cliente.vo;
+
+import java.io.Serializable;
+
+public class NotaFiscalVO implements Serializable {
+	
+    public id?: number,
+    public loja?: string,
+    public numeroNota?: number,
+    public dataNota?: Date,
+    public dataCadastro?: Date,
+    public formaPagamento?: string,
+    public valor?: number
+}

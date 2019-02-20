@@ -1,0 +1,2 @@
+<app-exibe-cliente *ngIf="exibeCliente" [cliente]="clienteSelecionado" (respostaExibeCliente)="respostaExibeCliente()"></app-exibe-cliente>
+<app-lista-cliente *ngIf="!exibeCliente" (respostaListaClientes)="respostaListaClientes($event)"></app-lista-cliente>

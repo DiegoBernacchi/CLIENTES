@@ -1,0 +1,15 @@
+package dm.cliente.business;
+
+import java.util.ArrayList;
+import java.util.List;
+import dm.cliente.vo.ClienteVO;
+
+public class ClienteBusiness {
+
+	public List<ClienteVO> retornaListaCliente() {
+		List<ClienteVO> listaClientes = new ArrayList<>();
+		
+		
+		return listaClientes;
+	}
+}

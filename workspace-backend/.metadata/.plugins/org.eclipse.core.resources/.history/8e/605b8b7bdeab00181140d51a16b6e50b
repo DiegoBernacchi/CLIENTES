@@ -1,0 +1,14 @@
+package dm.cliente.vo;
+
+import java.io.Serializable;
+
+public class ValoresVO implements Serializable {
+	
+	private Double historico;
+	private Double utilizados;
+	private Double perdidos;
+	
+	public ValoresVO() {
+	}
+	
+}

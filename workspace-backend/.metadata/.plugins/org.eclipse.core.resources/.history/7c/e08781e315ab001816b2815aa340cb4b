@@ -1,0 +1,19 @@
+package dm.cliente.vo;
+
+import java.io.Serializable;
+
+public class ClienteVO implements Serializable {
+
+	private static final long serialVersionUID = -412230928855044824L;
+	
+	private Long id;
+	private String nome;
+	private String email;
+	private Integer cpf;
+	private String observacao;
+	private String foto;
+	
+	public ClienteVO() {
+	}
+
+}

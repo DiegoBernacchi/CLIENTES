@@ -1,0 +1,33 @@
+package dm.cliente.rs;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import com.google.gson.Gson;
+
+import dm.cliente.vo.ClienteVO;
+
+
+@Path("cliente")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+public class ClienteService {
+	
+	/*@GET
+	@Produces(MediaType.TEXT_PLAIN)
+    public String get() {
+        return "TESTE";
+    }*/
+	
+	@GET
+    public Response get() {
+		ClienteVO c = new ClienteVO();
+		c.setId(1L);
+        return Response.ok(new Gson().toJson(c)).build();
+    }
+	
+}

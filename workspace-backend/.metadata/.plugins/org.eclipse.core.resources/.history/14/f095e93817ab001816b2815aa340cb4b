@@ -1,0 +1,16 @@
+package dm.cliente.vo;
+
+import java.io.Serializable;
+
+public class TelefoneVO implements Serializable {
+
+	private Long id;
+	private Integer pais;
+	private Integer area;
+	private Integer numero;
+	
+	public TelefoneVO() {
+	}
+	
+	
+}

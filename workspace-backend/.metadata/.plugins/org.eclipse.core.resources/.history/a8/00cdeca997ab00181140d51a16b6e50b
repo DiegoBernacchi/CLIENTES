@@ -1,0 +1,5 @@
+package dm.cliente.filter;
+
+public class ApplicationFilter {
+
+}

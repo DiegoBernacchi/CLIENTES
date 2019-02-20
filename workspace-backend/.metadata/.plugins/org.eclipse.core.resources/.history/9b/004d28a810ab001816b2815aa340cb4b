@@ -1,0 +1,14 @@
+package dm.cliente;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+
+@Path("cliente")
+@Produces(MediaType.TEXT_PLAIN)
+public class ClienteService {
+	@GET
+    public String get() {
+        return "TESTE";
+    }
+}

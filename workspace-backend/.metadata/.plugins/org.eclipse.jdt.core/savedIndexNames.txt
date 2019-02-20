@@ -1,0 +1,7 @@
+INDEX VERSION 1.127+C:\Users\dbernacchi.gmf\Desktop\PROJETO_CLIENTES\workspace-backend\.metadata\.plugins\org.eclipse.jdt.core
+336355858.index
+1653334481.index
+2371701418.index
+3329350969.index
+541220985.index
+584179596.index

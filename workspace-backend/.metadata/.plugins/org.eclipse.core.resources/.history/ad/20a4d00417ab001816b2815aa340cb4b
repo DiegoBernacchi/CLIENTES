@@ -1,0 +1,20 @@
+package dm.cliente.vo;
+
+import java.io.Serializable;
+
+public class EnderecoVO implements Serializable {
+	
+	
+	private Long id;
+	private String tipo;
+	private String logradouro;
+	private Integer numero;
+	private String complemento;
+	private String bairro;
+	private String cidade;
+	private String estado;
+	private String pais;
+	
+	public 
+
+}
